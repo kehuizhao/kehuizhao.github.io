@@ -1,0 +1,12 @@
+---
+layout:     post
+title:      "C++ 中的Swap函数"
+subtitle:   "第一篇Blog，请原谅我稚嫩的文笔╮(╯▽╰)╭"
+date:       2016-10-01 16:30:00
+author:     "ThdLee"
+header-img: "img/post-bg-swap.jpg"
+tags:
+    - C/C++
+---
+
+> 我又想起了那天被C++支配的恐惧
