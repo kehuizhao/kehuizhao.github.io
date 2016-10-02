@@ -97,7 +97,7 @@ public:					// 细节不重要
 private:
 	string name;			// 包含大量数据
 	string id;
-	std::vector<int> ved;
+	std::vector<int> vec;
 	...
 };
 
