@@ -89,6 +89,7 @@ namespace std {
 > 注：pimpl手法（pointer to implementation）是一种将对象实现的细节通过一个私有指针成员进行隐藏的常用手法，可以使接口与实现分离，解除它们之间的耦合关系，来降低文件间的编译依赖性。
 
 一个pimpl手法的栗子：
+
 ```cpp
 class BoxImpl
 {
