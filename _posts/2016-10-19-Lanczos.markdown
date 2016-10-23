@@ -10,7 +10,7 @@ tags:
     - 图像处理
 ---
 
-由于最近的Java作业要求将图片放大缩小，主要就是选用一种插值算法，如最邻近插值、双线性二次插值、双线性三次插值，Lanczos插值算法等。本文主要讲如何用Java实现Lanczos算法,详细原理见[Lanczos Resampling](en.wikipedia.org/wiki/Lanczos_resampling)
+由于最近的Java作业要求将图片放大缩小，主要就是选用一种插值算法，如最邻近插值、双线性二次插值、双线性三次插值，Lanczos插值算法等。本文主要讲如何用Java实现Lanczos算法，详细原理见[Lanczos Resampling](en.wikipedia.org/wiki/Lanczos_resampling)
 
 Lanczos插值的原理其实就是在原图像中取一个小窗口，通过计算权重映射到新的图像中的一个像素点中。
 
@@ -135,3 +135,5 @@ private double getLanczosFactor(double x) {
 
 ![zoom in](http://thdlee.com/img/Lanczos/ZoomInPicture.jpg "缩小")
 <small class="img-hint">缩小</small>
+
+源码可见我的[github](https://github.com/ThdLee/LanczosImage)
