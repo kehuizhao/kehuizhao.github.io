@@ -83,5 +83,8 @@ featured-condition-size: 0              # A tag will be featured if the size of 
 
 # Friends
 friends: [
-   
+   {
+        title: "F一棵球和一枝猪",
+        href: "http://www.cnblogs.com/chunzhulovefeiyue/"
+    }
 ]
