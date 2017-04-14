@@ -6,8 +6,8 @@ date:       2017-3-31 00:05:00
 author:     "ThdLee"
 header-img: "img/MemoryAlloc/post-bg-memoryAlloc.jpg"
 tags:
-    - 内存
-    - 编译器
+    - 操作系统
+    - 编译原理
 ---
 
 ## 内存分配

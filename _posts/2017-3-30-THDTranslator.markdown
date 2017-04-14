@@ -7,8 +7,7 @@ author:     "ThdLee"
 header-img: "img/THDTranslator/post-bg-THDTranslator.jpg"
 tags:
     - Java
-    - 编译器
-    - 翻译器
+    - 编译原理
 ---
 
 ### 介绍
