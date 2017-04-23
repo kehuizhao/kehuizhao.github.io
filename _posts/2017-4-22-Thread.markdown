@@ -56,13 +56,13 @@ tags:
 
 在用户空间管理线程时，每个进程需要有其专门的线程表(thread table)，用来跟踪改进程中的线程。这些表和内核中的进程表类似，不过它仅仅记录各个线程的属性，如每个线程的程序计数器、堆栈指针、寄存器和状态等。该表由运行时系统管理。
 
-![用户空间中的线程库](http://thdlee.com/img/Thread/userPackage.jpg)
+![用户空间中的线程库](http://thdlee.com/img/Thread/userThreadPackage.jpg)
 
 ### 在内核中实现
 
 由操作系统直接支持的内核级的线程库，此时不再需要运行时系统，每个进程中也没有线程表。相反，库的代码和数据结构以及记录系统中所有线程的线程表都存放在内核空间中。当某个线程希望创建一个新线程或撤销一个已有线程时，它会产生一个系统调用，这个系统调用通过对线程表的更新完成线程创建或撤销工作。
 
-![内核空间中的线程库](http://thdlee.com/img/Thread/kernalPackage.jpg)
+![内核空间中的线程库](http://thdlee.com/img/Thread/kernalThreadPackage.jpg)
 
 ### 混合实现
 
