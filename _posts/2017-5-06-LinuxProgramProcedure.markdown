@@ -4,7 +4,7 @@ title:      "Linux x86-64 静态链接程序的运行过程"
 subtitle:   "我从哪里来，我又要到哪里去？"
 date:       2017-5-06 15:00:00
 author:     "ThdLee"
-header-img: "img/THDTranslator/post-bg-LinuxProgramProcedure.jpg"
+header-img: "img/LinuxProgramProcedure/post-bg-LinuxProgramProcedure.jpg"
 tags:
     - Linux
     - C/C++
