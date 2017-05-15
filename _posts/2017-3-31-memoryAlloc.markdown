@@ -14,75 +14,201 @@ tags:
 
 尽管现在的许多高级语言已经不需要程序员去直接处理内存分配和垃圾回收，但是内存的管理是学习编程过程中的一个很重要的概念，理解相关概念和应用能够让我们对编程和计算机有更深的理解。
 
-一般来讲，程序分为栈区、堆区、文字常量区、静态/全局区和代码区。
+一般来讲，程序由下面几部分组成：
 
-**栈区**：一般存储局部变量和常量，包括函数的参数，由编译器分配和释放。存取速度较快，但存储的数据一般生命周期较短。
+**栈**：局部变量以及每次函数调用时所需要保存的信息都存放在此区域中。每次函数调用时，其返回地址以及调用者的环境信息都存放在栈中。然后最近被调用的函数在栈上为其局部变量分配存储空间。
 
-**堆区**：一般存储对象，由程序员分配和释放，如果程序员不释放，则由操作系统释放。当然，如果使用的高级语言有垃圾回收机制，则大多数情况下程序员也不用担心内存空间的释放问题了。
+**堆**：堆用于存放程序运行中被动态分配的内存，大小并不固定。
 
-**文字常量区**：存放字符串。为了节省内存空间，编译器一般会将字符串常量存储在文字常量区，在给字符串变量赋值时先在文字常量区寻找，如果有相同字符串，则共享该字符串地址，如果没有，则在常量区中添加该字符串，并将地址传给变量。
+**bss段**：也叫未初始化数据段，存放程序中未初始化过的全局变量和静态变量，在程序开始执行之前，内核将此段的数据初始化为0。
 
-**静态/全局区**：存放静态变量和全局变量，程序结束后由系统释放。
+**数据段**：也叫初始化数据段，存放程序中已经明确地初始化的全局变量和静态变量。（如C程序中任何函数之外的声明）
 
-**代码区**：存放函数体的二进制代码。
+**正文段**：存放程序的执行代码，它的大小在程序运行前就已经确定。通常，正文段是可以共享的，多个此程序执行的进程在内存中只需要一个副本。另外，正文段常常是只读的，以防止程序由于意外而修改指令。该段也可能包含一些只读的常数，如字符串常量等。
 
-## OC中的内存地址
+## 对C程序中内存布局的探索
 
-我们以Objective-C语言为例，定义一些常量、变量和对象来简单地观察一下内存的分配（Objective-C是扩充C的面向对象的编程语言，NSArray、NSString都是类）。
+> 所有程序均在Linux CentOS上运行。
 
-```
-const int constA = 100;
-int a = 10;
-int b = 11;
-int c;
-static int staA = 0.5;
-static int staB = 0.6;
-static int staC;
-NSArray *array1 = @[@1, @2, @3];
-NSArray *array2 = @[@"2333"];
-NSArray *array3 = [[NSArray alloc] initWithArray:array1];
-NSString *str = @"Hello world";
-NSString *str1 = @"Hello world";
-NSString *str2 = @"Hello";
-static NSArray *stArrayA;
-static NSArray *stArrayB;
-stArrayA = @[@1];
-stArrayB = @[@21,@3];
+### 数据段与bss段
+
+运行下面代码，查看全局变量的地址（注释为对应地址）：
+
+```c
+#include <stdio.h>
+
+int a = 0;
+int b;
+int main(int argc, const char * argv[]) {
+    printf("%p\n", &a);		//0x601038
+    printf("%p\n", &b);		//0x60103c
+    return 0;
+}
 ```
 
-将相应的值的地址打印出来：
+可以看到，未初始化的`b`的地址正好在初始化过的`a`的地址之上，这是巧合吗？我们再探索一下：
+
+```c
+#include <stdio.h>
+
+int a = 3;
+int b;
+int c = 5;
+int d;
+int main(int argc, const char * argv[]) {
+    printf("%p\n", &a);		//0x601034 
+    printf("%p\n", &b);		//0x601044 
+    printf("%p\n", &c);		//0x601038
+    printf("%p\n", &d);		//0x601040
+    return 0;
+}
+```
+初始化的`a`和`c`在低地址，而`b`和`d`在高地址，所以说这并不是偶然。
+
+另外，编译器通常对bss段的处理方式是：只描述大小，不增加目标文件体积。我们可以使用`size`命令来看一下编译后的`a.out`的各段大小，作为对比，我们先对一个没有声明任何函数和变量的程序执行`size`命名：
 
 ```
-NSLog(@"const int %lx", &constA);         // const int 7fff5fbff6ec
-NSLog(@"int %lx", &a);                    // int 7fff5fbff6e8 
-NSLog(@"int %lx", &b);                    // int 7fff5fbff6e4
-NSLog(@"int %lx", &c);                    // int 7fff5fbff6e0
-NSLog(@"static int %lx", &staA);          // static int 100002330
-NSLog(@"static int %lx", &staB);          // static int 100002334
-NSLog(@"static int %lx", &staC);          // static int 100002338
-NSLog(@"NSArray* %lx", &array1);          // NSArray* 7fff5fbff6d8
-NSLog(@"NSArray* %lx", &array2);          // NSArray* 7fff5fbff6d0
-NSLog(@"NSArray* %lx", &array3);          // NSArray* 7fff5fbff6c8
-NSLog(@"NSString* %lx", &str);            // NSString* 7fff5fbff6b8
-NSLog(@"NSString* %lx", &str1);           // NSString* 7fff5fbff6b0
-NSLog(@"NSString* %lx", &str2);           // NSString* 7fff5fbff6a8
-NSLog(@"static NSArray* %lx", &stArrayA); // static NSArray* 100002340
-NSLog(@"static NSArray* %lx", &stArrayB); // static NSArray* 100002348
-NSLog(@"NSArray %lx", array1);            // NSArray 1002032a0
-NSLog(@"NSArray %lx", array2);            // NSArray 1002013f0
-NSLog(@"NSArray %lx", array3);            // NSArray 1002035c0
-NSLog(@"NSString %lx", str);              // NSString 100002080
-NSLog(@"NSString %lx", str1);             // NSString 100002080
-NSLog(@"NSString %lx", str2);             // NSString 1000020a0
-NSLog(@"static NSArray %lx", stArrayA);   // static NSArray 1002035f0
-NSLog(@"static NSArray %lx", stArrayB);   // static NSArray 1002013d0
+$ size a.out
 ```
-分析一下打印结果，可以得出：
+```
+   text	   data	    bss	    dec	    hex	filename
+   1129	    540	      4	   1673	    689	a.out
+```
 
-1. 局部的常量和变量（包括指针）存于高地址，连续声明的变量地址会紧挨在一起，地址从高地址向低地址扩展。这一部分就是**栈**。
-2. 对象存储于低地址，而且连续声明的对象地址不连续。这一部分就是**堆**，其实堆内存是由类似链表的结构串起来的，每一个空闲内存块地址并不一定连续，所以会出现这样的现象。
-3. 静态的变量会存储于低地址，比堆空间地址还低，静态的对象只有指针存储在静态区，分配给对象的空间在堆中。
-4. 表示字符串的类`NSString`的对象存储在比静态区地址还要低一些的地址中，变量`str`与`str1`的值相同，所以共享字符串地址。
+接下来，我们声明一个未初始化的全局的数组`int a[65535];`：
+
+```c
+#include <stdio.h>
+int bss[65535];
+int main(int argc, const char * argv[]) {
+    bss[0] = 1;
+    return 0;
+}
+```
+执行`size`:
+
+```
+   text	   data	    bss	    dec	    hex	filename
+   1145	    540	 262176	 263861	  406b5	a.out
+
+```
+
+很明显，bss段变大了，再看一下`a.out`的大小：
+
+```
+$ ls -l a.out
+```
+```
+-rwxr-xr-x. 1 thdlee thdlee 8848 5月  11 17:49 a.out
+```
+
+目标文件的大小远远小于65535个`int`，这次直接将数组赋一个初值`int bss[65535] = {1};`，再进行同样的操作：
+
+```
+$ size a.out
+```
+```
+   text	   data	    bss	    dec	    hex	filename
+   1129	 262708	      4	 263841	  406a1	a.out
+```
+```
+$ ls -l a.out
+```
+```
+-rwxr-xr-x. 1 thdlee thdlee 270680 5月  11 17:49 a.out
+```
+
+不出所料，data段增大了，文件也变成了应有的大小。
+
+### 代码段
+
+代码段的内存地址可以用函数指针来检测：
+
+```c
+#include <stdio.h>
+void foo() {
+}
+
+int a;
+int main(int argc, const char * argv[]) {
+    printf("%p\n", &a);			\\0x601034
+    printf("%p\n", &foo);		\\0x40052d
+    return 0;
+}
+```
+
+函数是存放在代码段的，所以看到函数的内存地址比数据区还要低。另外，文本区一般还存放着字符串常量，我们先来看看下面这个例子：
+
+```c
+#include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+    char *a = "Hello World!";
+    char *b = "Hello World!";
+    char *c = "Hello";
+    printf("%p\n", a);		\\0x400630
+    printf("%p\n", b);		\\0x400630
+    printf("%p\n", c);		\\0x40063d
+    return 0;
+}
+```
+从例子中可以看到，字符串的地址在与函数地址差不多的地方，而且对于指向相同字符串的指针变量，它们的地址是相同的。
+
+### 堆和栈
+
+一般来说，堆是由低地址向高地址增长的，而栈是由高地址向低地址增长。
+
+按照惯例，我们还是用一个小程序来探索一下：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, const char * argv[]) {
+    int a = 1;
+    int b = 2;
+    char *p1 = malloc(16);
+    char *p2 = malloc(16);
+    printf("%p\n", &a);		\\0x7ffe145134dc
+    printf("%p\n", &b);		\\0x7ffe145134d8
+    printf("%p\n", p1);		\\0x1478010
+    printf("%p\n", p2);		\\0x1478030
+    free(p1);
+    free(p2);
+    return 0;
+}
+```
+
+根据变量的声明顺序，可以看到栈是向下增长，而堆是向上增长的。这里要注意的一点是，指针`p1`和`p2`存储的是指向对的地址，但是它们两个的存储位置是在栈上的。我们再来看看函数调用中变量地址的变化。
+
+```c
+#include <stdio.h>
+
+void foo2() {
+    int c;
+    printf("%p\n", &c);		\\0x7fffb97a99ec
+}
+
+void foo1() {
+    int b;
+    printf("%p\n", &b);		\\0x7fffb97a9a0c
+    foo2();
+}
+
+void bar() {
+    int d;
+    printf("%p\n", &d);		\\0x7fffb97a9a0c
+}
+
+int main(int argc, const char * argv[]) {
+    int a;
+    printf("%p\n", &a);		\\0x7fffb97a9a3c
+    foo1();
+    bar();
+    return 0;
+}
+```
+
+随着函数的开始，栈也开始向下扩展。当函数结束时，分配在栈上的空间也跟着收回。
 
 ## 更进一步地探讨
 
@@ -102,4 +228,4 @@ NSLog(@"static NSArray %lx", stArrayB);   // static NSArray 1002013d0
 
 ![地址空间的不同视图](http://thdlee.com/img/MemoryAlloc/addressSpace.jpg)
 
-所以说，我们所看到的只是逻辑地址，我们在代码中对所谓内存的操作，也只是对逻辑地址的操作，这些操作的具体过程是由编译器和操作系统以及硬件为我们完成的。				 
+所以说，我们所看到的只是逻辑地址，我们在代码中对所谓内存的操作，也只是对逻辑地址的操作，这些操作的具体过程是由编译器和操作系统以及硬件为我们完成的。		
