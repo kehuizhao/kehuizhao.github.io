@@ -47,17 +47,6 @@ kramdown:
 
 
 
-# Disqus settings
-#disqus_username: _your_disqus_short_name_
-
-# Duoshuo settings
-duoshuo_username: thdlee
-# Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                    # set to false if you want to use Comment without Sharing
-
-
-
-
 # Analytics settings
 # Baidu Analytics 
 ba_track_id: 13ab38ea374e14a943514cfcf3d14fd9
@@ -86,5 +75,9 @@ friends: [
    {
         title: "一棵球和一枝猪",
         href: "http://www.cnblogs.com/chunzhulovefeiyue/"
+    },
+    {
+        title: "RMSnow",
+        href: "http://www.zhangxueyao.com/"
     }
 ]
