@@ -3,6 +3,7 @@ layout:     post
 title:      "初步理解进程与线程（线程篇）"
 date:       2017-4-22 00:48:00
 author:     "ThdLee"
+catalog:    true
 tags:
     - 操作系统
 ---

@@ -5,6 +5,7 @@ subtitle:   "我的Java课程小作业"
 date:       2016-10-19 22:30:00
 author:     "ThdLee"
 header-img: "img/Lanczos/post-bg-lanczos.jpg"
+catalog:    true
 tags:
     - Java
     - 图像处理

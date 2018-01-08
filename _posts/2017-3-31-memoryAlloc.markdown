@@ -5,6 +5,7 @@ subtitle:   "假装我有一套房..."
 date:       2017-3-31 00:05:00
 author:     "ThdLee"
 header-img: "img/MemoryAlloc/post-bg-memoryAlloc.jpg"
+catalog:    true
 tags:
     - 操作系统
     - 编译原理

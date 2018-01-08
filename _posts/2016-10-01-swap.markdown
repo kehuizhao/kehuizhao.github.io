@@ -5,6 +5,7 @@ subtitle:   "第一篇Blog，请原谅我稚嫩的文笔╮(╯▽╰)╭"
 date:       2016-10-01 16:30:00
 author:     "ThdLee"
 header-img: "img/Swap/post-bg-swap.jpg"
+catalog:    true
 tags:
     - C/C++
 ---

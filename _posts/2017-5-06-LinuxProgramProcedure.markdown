@@ -5,6 +5,7 @@ subtitle:   "我从哪里来，我又要到哪里去？"
 date:       2017-5-06 15:00:00
 author:     "ThdLee"
 header-img: "img/LinuxProgramProcedure/post-bg-LinuxProgramProcedure.jpg"
+catalog:    true
 tags:
     - Linux
     - C/C++

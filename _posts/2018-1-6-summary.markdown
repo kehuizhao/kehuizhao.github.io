@@ -5,6 +5,7 @@ subtitle:   "2017年总结"
 date:       2018-1-06 13:00:00
 author:     "ThdLee"
 header-img: "img/2017-Summary/post-bg-2017-summary.png"
+catalog:    true
 tags:
     - Summary
 ---

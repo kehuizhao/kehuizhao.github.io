@@ -5,6 +5,7 @@ subtitle:   "编译原理应用的小玩具"
 date:       2017-3-30 10:30:00
 author:     "ThdLee"
 header-img: "img/THDTranslator/post-bg-THDTranslator.jpg"
+catalog:    true
 tags:
     - Java
     - 编译原理
