@@ -22,7 +22,7 @@ tags:
 
 # sigmoid
 
-函数公式![sigmoid](http://thdlee.com/img/ActivationFunction/sigmoid.png)
+![sigmoid](http://thdlee.com/img/ActivationFunction/sigmoid.png)
 
 sigmoid非线性函数是曾经较为流行的一种激活函数，它将输入值挤压的0到1范围内，也就是说，当输入一个非常大的正数时，输出接近于1，输入一个非常小的负数时，输出接近于0。因此在使用sigmoid时便有一个严重的问题，即梯度的**饱和效应**（saturation effect）。也就是说，当神经元的激活在接近0或1时会产生饱和，即在这些区域，梯度几乎为0。我们知道，在网络反向传播的过程中，这个局部梯度将会与返回的上游梯度相乘，因此如果局部梯度过小，就会使结果接近零，从而不能使反向传播继续进行，进而导致网络无法训练。此外，在初始化权重时还要特别留意，比如权重过大可能直接引发梯度饱和效应而使网络无法训练。
 
@@ -32,7 +32,7 @@ sigmoid非线性函数是曾经较为流行的一种激活函数，它将输入�
 
 # tanh
 
-函数公式![tanh](http://thdlee.com/img/ActivationFunction/tanh.png)
+![tanh](http://thdlee.com/img/ActivationFunction/tanh.png)
 
 它将输入值压缩到[-1,1]之间，和sigmoid一样，它也存在梯度饱和问题，会出现梯度消失的现象，不过tanh函数是以0为中心的。所以它比sigmoid函数好一些，但是还是存在一些问题。
 
@@ -40,7 +40,7 @@ sigmoid非线性函数是曾经较为流行的一种激活函数，它将输入�
 
 # ReLU
 
-函数公式 ![ReLU](http://thdlee.com/img/ActivationFunction/ReLU.png)
+![ReLU](http://thdlee.com/img/ActivationFunction/ReLU.png)
 
 ReLU是我们常用的一种激活函数，将它与sigmoid和tanh函数进行对比，会发现当输入为正时，函数不会出现饱和现象，这是它的一个优势。另外它的运算比较简单，sigmoid与tanh中存在指数，所以运算复杂，而ReLU只是简单的max操作，在速度上会非常快。所以使用ReLU在收敛速度上会比sigmoid和tanh快。另外也有实验说明ReLU更具有生物学上的合理性。
 
@@ -48,7 +48,7 @@ ReLU是我们常用的一种激活函数，将它与sigmoid和tanh函数进行�
 
 # Leaky ReLU
 
-函数公式![Leaky_ReLU](http://thdlee.com/img/ActivationFunction/Leaky_ReLU.png)
+![Leaky_ReLU](http://thdlee.com/img/ActivationFunction/Leaky_ReLU.png)
 
 Leaky ReLU是为了解决dead ReLU问题而对ReLU的改进。它和ReLU非常相似，唯一不同的地方在于它给出了一个很小的负数梯度值，这也就解决了之前的问题，没有了饱和现象，而且计算任然非常高效，收敛速度也很快。但一些研究者的论文也指出这个激活函数不是很稳定。
 
