@@ -28,27 +28,27 @@ tags:
 
 # 感知器
 
-## 感知器概念
+### 感知器概念
 
-现代深度学习最早是由神经科学启发的简单线性模型，为了模拟大脑中神经系统的基础神经元，上个世纪六十年代，感知器（perceptron）应用而生。![perceptron](http://thdlee.com/img/DeepLearning/NerualNetwork/perceptron.png)
+现代深度学习最早是由神经科学启发的简单线性模型，为了模拟大脑中神经系统的基础神经元，上个世纪六十年代，感知器（perceptron）应用而生。![perceptron](http://thdlee.com/img/DeepLearning/NeuralNetwork/perceptron.png)
 
-这种感知器模型拥有n个输入x~1~,…,x~n~和一个输出y，并且输入输出都为二进制，即0和1。上图就代表一个有三个输入和1个输出的感知器。感知器通过学习一组权重w~1~,…,w~2~，并计算它们的输出f(x,w) = x~1~w~1~ + ··· + x~n~w~n~，权重代表输入对于输出的重要性。
+这种感知器模型拥有n个输入x<sub>1</sub>,…,x<sub>n</sub>和一个输出y，并且输入输出都为二进制，即0和1。上图就代表一个有三个输入和1个输出的感知器。感知器通过学习一组权重w<sub>1</sub>,…,w<sub>2</sub>，并计算它们的输出f(x,w) = x<sub>1</sub>w<sub>1</sub>+···+x<sub>n</sub>w<sub>n</sub>，权重代表输入对于输出的重要性。
 
-![perceptron_formula1](http://thdlee.com/img/DeepLearning/NerualNetwork/perceptron_formula1.png)
+![perceptron_formula1](http://thdlee.com/img/DeepLearning/NeuralNetwork/perceptron_formula1.png)
 
- 记w⋅x=∑~j~w~j~x~j~，b=-threshold（偏移），则有
+记w⋅x=∑<sub>j</sub>w<sub>j</sub>x<sub>j</sub>，b=-threshold（偏移），则有
 
-![perceptron_formula2](http://thdlee.com/img/DeepLearning/NerualNetwork/perceptron_formula2.png)
+![perceptron_formula2](http://thdlee.com/img/DeepLearning/NeuralNetwork/perceptron_formula2.png)
 
-## 激活函数
+### 激活函数
 
 要想让学习变得可能，模型需要具备学习特征：权重或偏移有较小的变化时会导致输出也有较小的变化。而在感知器模型中，权重或偏移的变化只可能导致输出在0和1之间进行翻转，所以感知器模型不具备这种学习特征。一旦具备这种学习特征，那么我们就可以修改模型的权重和偏移使模型向我们期望的方向发展。
 
-![tiny_change](http://thdlee.com/img/DeepLearning/NerualNetwork/tiny_change.png)
+![tiny_change](http://thdlee.com/img/DeepLearning/NeuralNetwork/tiny_change.png)
 
-为了解决这种学习特征缺失的问题，我们引入了SIgmoid神经元。和感知器也有，Sigmoid神经元同样也有输入x~1~,…x~n~，但是它们已不再局限于0和1，而是0和1之间的任何值。而它的输出y，也不再通过简单的线性函数计算得出，而是变成了σ(w·x+b)，即Sigmoid函数，其定义为σ(z)=1/(1+e^-z^)。
+为了解决这种学习特征缺失的问题，我们引入了SIgmoid神经元。和感知器也有，Sigmoid神经元同样也有输入x<sub>1</sub>,…x<sub>n</sub>，但是它们已不再局限于0和1，而是0和1之间的任何值。而它的输出y，也不再通过简单的线性函数计算得出，而是变成了σ(w·x+b)，即Sigmoid函数，其定义为σ(z)=1/(1+e<sup>-z</sup>)。
 
-![Sigmoid](http://thdlee.com/img/DeepLearning/NerualNetwork/Sigmoid.png)
+![Sigmoid](http://thdlee.com/img/DeepLearning/NeuralNetwork/Sigmoid.png)
 
 从另一方面来讲，由于感知器只具有线性映射的能力，有感知器组成的神经网络也只是若干线性操作的堆叠，无法形成复杂函数映射，而这如Sigmoid这样的非线性函数的引入其实是为了增加神经网络的表达能力，这样的函数称为激活函数（activation function），除了Sigmoid函数外，还有许多函数可以选择。
 
@@ -56,13 +56,13 @@ tags:
 
 单个的感知器已经构成了一个简单的决策模型，已经可以使用了，但真实情况下所需要的决策模型往往要复杂的多，需要许多感知器共同组成一个多层的网络。
 
-![neural_network_architecture](http://thdlee.com/img/DeepLearning/NerualNetwork/neural_network_architecture.png)
+![neural_network_architecture](http://thdlee.com/img/DeepLearning/NeuralNetwork/neural_network_architecture.png)
 
 在这个神经网络模型中，最左边的那一层为输入层，最右边的那一层为输出层，显然这个输出层只有一个输出神经元。中间的结构被称为隐藏层，因为我们知道输入到输入层的数据，也可以看到输出层的输出结果，而中间层的数据我们是观测不到的，所以这些层被称为”隐藏“。
 
 既然神经网络是由一层层的神经元构建而成的，那么每一个层究竟起到了什么作用呢？
 
-对于每一层神经元，我们有y = f(W·x+b)，其中x是输入向量，y是输出向量，b是偏移向量，W是权重矩阵，f(·)是激活函数（如SIgmoid函数）。每一层神经元其实是完成了由输入空间到输出空间的变换，这种变换是通过以下操作完成的：
+对于每一层神经元，我们有y=f(W·x+b)，其中x是输入向量，y是输出向量，b是偏移向量，W是权重矩阵，f(·)是激活函数（如SIgmoid函数）。每一层神经元其实是完成了由输入空间到输出空间的变换，这种变换是通过以下操作完成的：
 
 * 升维/降维
 * 放大/缩小
@@ -72,7 +72,7 @@ tags:
 
 
 
-![sigmoid_network](http://thdlee.com/img/DeepLearning/NerualNetwork/sigmoid_network.png)
+![sigmoid_network](http://thdlee.com/img/DeepLearning/NeuralNetwork/sigmoid_network.png)
 
 在上图中，红线和蓝线是两种不同的输入数据，但是我们并不能用简单的线性分类器来将它们分开，而这个网络模型通过变换输入空间，经过放大、平移、旋转、扭曲原二维空间后，在三维空间下讲就可以成功找到一个超平面将红蓝两线分割开来。当然，这个网络只有简单的5个神经元，而为了解决较为复杂的问题，网络模型通常有成千上万的神经元。
 
@@ -80,23 +80,24 @@ tags:
 
 了解了神经网络的学习过程其实就是学习控制空间的变换方式的权重矩阵，接下来的问题是如何学习每一层的权重矩阵。在监督学习中，神经网络有两个重要的算法——前向传播和反向传播（backpropagation）。
 
-## 前向传播
+### 前向传播
 
 前向传播不难理解，它的运算非常直观。
 
-![forward](http://thdlee.com/img/DeepLearning/NerualNetwork/forward.png)
-
+![forward](http://thdlee.com/img/DeepLearning/NeuralNetwork/forward.png)
 
 
 上图的模型有一个输入层，两个隐藏层和一个输出层，右式用来计算该模型的前向传播。在每一层中，我们首先要计算每个神经元的权重向量与输入向量的点积z，然后通过非线性函数f(·)得到下一层的输入y。非线性函数处理Sigmoid以外，近年来常用ReLU函数，即f(x)=max(0,x)。
 
-## 链式法则
+### 链式法则
 
 链式法则（chain rule）是微积分中的求导法则，它是反向传播的基础，用于求得一个复合函数的导数，是在微积分求导运算中的一种常用方法。假设有函数F(x) = f(g(x))，其中f(·)和g(·)为函数，x为常数，使得f(·)在g(·)可导，g(·)在x处可导，则有F‘(x) = f'(g(x)) · g'(x)，即∂F/∂x = ∂f/∂g · ∂g/∂x。
 
-## 反向传播
+### 反向传播
 
-![backpropagation](http://thdlee.com/img/DeepLearning/NerualNetwork/backpropagation.png)反向传播方法是链式法则的一个实际应用，它是更新权重的关键。我们首先通过某种目标函数来度量模型的输出与期望之间误差，然后在训练过程中不断调整每个权值来使这种误差达到最小。在实际中，我们通常使用梯度下降法来求解最小化的目标函数。
+![backpropagation](http://thdlee.com/img/DeepLearning/NeuralNetwork/backpropagation.png)
+
+反向传播方法是链式法则的一个实际应用，它是更新权重的关键。我们首先通过某种目标函数来度量模型的输出与期望之间误差，然后在训练过程中不断调整每个权值来使这种误差达到最小。在实际中，我们通常使用梯度下降法来求解最小化的目标函数。
 
 梯度下降法通过某个起始点，并求出该点的梯度向量，然后以负梯度的方向为搜索方向，以一定的步长进行搜索，从而确定下一个迭代点，再计算新的梯度方向，如此重复直至目标函数收敛。
 
