@@ -1,35 +1,84 @@
+## Education Background
 
+#### Wuhan University (09/2015-06/2019)
 
-> Yet another man.
+**Faculty**: School of Mathematics and Statistics <br>
+**Major**: Statistics <br>
+**GPA**: 89.0/100 (3.72/4.00)
 
+## Honors and Awards
 
-Hi, I am *@huxpro* (Huang, Xuan), a software engineer & a designer. I previously worked as Web Front-End Engineer at [Alibaba Trip](https://www.alitrip.com/); Web Front-End Infrastructure Team Lead at [Wepiao.com](https://www.crunchbase.com/organization/wepiao#/entity); And [Invited Consultant on PWA]((https://medium.com/elemefe/upgrading-ele-me-to-progressive-web-app-2a446832e509)) at [Ele.me](https://github.com/elemefe/).
+02/2018 **H Award in American Undergraduate Mathematical Contest in Modeling** <br>
+09/2016 (2015-2016 Academic Year) **Third Class Scholarship of Wuhan University** (TOP 15%) <br>
+11/2015 **Excellent Freshman Third Class Scholarship of Wuhan University** (TOP 15%)
 
-I studied Digital Media Art and graduated from [Communication University of China](https://en.wikipedia.org/wiki/Communication_University_of_China) by 2016, and am studying Computer Science at [Rochester Institute of Technology](https://en.wikipedia.org/wiki/Rochester_Institute_of_Technology) from 2017.
+## Project Experience
 
+#### Deep Learning Through MATLAB (06/2018)
 
-##### Talks
+* Proposed a mapping to divide the given points into groups; produced output and generalized cost function by target output. 
 
-- [Upgrading to Progressive Web Apps][9] · [JSConf China Shanghai 2017](http://2017.jsconf.cn/)
-- Building Progressive Web Apps · [CSDI Guangzhou 2017](http://www.csdisummit.com/)
-- The State of Progressive Web App · GDG IO Redux Beijing 2017
-- PWA Rehashing · Baidu HQ Beijing 2017
-- [Service Worker 101][5] · GDG DevFest Beijing 2016
-- [Progressive Web Apps][4] · QCon Shanghai 2016
-- Progressive Web App in my POV · GDG IO Redux Beijing 2016
-- [CSS Still Sucks 2015][2] · 2015
-- [JavaScript Modularization Journey][1] · 2015
+* Minimized the cost function using stochastic gradient method; computed gradients by back propagation. 
 
+* Results showed that with the increase of iterations, output became gradually closer to the target output; the 
 
+mapping performed well with testing data 
 
-[1]: //huangxuan.me/2015/07/09/js-module-7day/
-[2]: //huangxuan.me/2015/12/28/css-sucks-2015/
-[3]: //huangxuan.me/2016/06/05/pwa-in-my-pov/
-[4]: //huangxuan.me/2016/10/20/pwa-qcon2016/
-[5]: //huangxuan.me/2016/11/20/sw-101-gdgdf/
-[6]: https://yanshuo.io/assets/player/?deck=58ac8598b123db0067292f92 "PWA Rehashing"
-[7]: https://yanshuo.io/assets/player/?deck=593ad6fbfe88c2006a0a0d6d "The State of PWA"
-[8]: https://yanshuo.io/assets/player/?deck=594d673d570c357d0698a950 "Building PWA"
-[9]: //huangxuan.me/jsconfcn2017/
+#### Parameter Estimation of Finite Normal Mixture Samples (05/2018)
 
+- Introduced latent variable into the research; based on Bayes Principle, applied EM algorithm to logarithmic likelihood function and got the iterative formula with unknown parameter. 
+- Selected the appropriate initial value to minimize iteration times using R; compared the final result with the original set value. 
+- Results showed that EM algorithm was effective in estimating unknown parameter; the low cost of iteration offset the disadvantage of EM algorithm in demanding great iterations to converge. 
 
+#### Preconditioned Conjugated Gradient through MATLAB (11/2016)
+
+- Raised a method to optimize Conjugated Gradient 
+
+- Converted n×n symmetric positive equations Ax = b into new equations; applied Conjugated Gradient and incomplete Cholesky factorization to obtain Preconditioned Conjugated Gradient. 
+
+- Pre-conditioned matrix A could accelerate function convergence with fewer relative errors. 
+
+## Internship Experience
+
+#### China Logistic Information Index Co., Ltd, Manager Assistant (08/2018-09/2018)
+
+* Participated in PMI investigation and assisted in distributing over 700 questionnaire surveys. 
+* Gathered survey results and calculated related PMI indexes; adjusted the data in accordance with the season; calculated the correlation coefficient among PMI indexes using R. 
+* Compared the calculated indexes with official data released by National Bureau of Statistics to validate the results; created index variation diagram and analyzed the index fluctuation reasons. 
+
+#### China Logistic Information Center, Assistant (09/2018-10/2018)
+
+- Gathered the logistics information report from each department and calculated the China Highway Freight & Logistics Weekly Index; created index variation diagram. 
+- Analyzed the fluctuation of the weekly indexes and wrote a corresponding report, which got published on the official website of China Logistic Information Center. 
+- Assisted in completing China Logistic Enterprise Business Environment Report. 
+- Participated in significant meetings such as Transportation, Energy and Yangtze River Economic Belt Situation Analysis Session. 
+
+## On-campus Activities
+
+#### Summer Vacation Social Practice, Associate Team Leader (07/2016-08/2016)
+
+* Organized to investigate the effort to protect ancient buildings in Shaanxi province. 
+
+* Conducted on-spot visits and investigations to the ruins of ancient buildings; consulted experts and understood ancient building current preservation situation. 
+
+* Applied factor analysis and linear regression analysis to summarize ancient building current preservation situation and its deficiencies. 
+
+## Skills
+
+#### Language skills
+
+* TOEFL: 102 (L: 29, R: 26, W: 25, S: 22) - May 6, 2018
+* GRE: 320(V: 152, Q: 168, W:3.5) - September 1, 2018
+
+#### Professional skills
+
+proficiency in applying technologies including R, SAS, MATLAB, and LATEX; have a good command of C Language and Python
+
+## Interests & Hobbies
+
+Volleyball, running, reading
+
+## Personal Information
+DOB: October 15, 1997 <br>
+Email: chloe.zhao1015@gmail.com <br>
+Tel.: +86 18991305181 Add.: Xinxilan Community, No. 129, Science and Technology Road, Yanta District, Xi'an, Shaanxi, China
