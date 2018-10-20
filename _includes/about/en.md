@@ -23,16 +23,13 @@ GPA: 89.0/100 (3.72/4.00)
 #### Proposed a Mapping to Divide Given Points into Group (06/2018)                              
 
 * Considered *labeled data* in $\mathbb{R^2}$ : some are in category *A*, the rest are in category *B*. Aimed to construct a transformation that took any points in  $\mathbb{R^2}$ to return either category *A* or *B*.
-
 * Constructed such transformation based on artificial neural network.
-
 * Use MATLAB to train this network: initialize all weight and biases using randn and set a constant learning rate; use the iteration summarized above and store the value of cost function as each iteration; use the semiology command to visualize the process of iteration.
-
 * **semiology** Plot shows cost undergoes a flood period towards the start of process; After this plateau, the cost decayed at a very slow linear rate. When extra data point is added, after repeating this process, the other points almost remain in the same groups as before.
 
 #### Parameter Estimation of Finite Normal Mixture Samples (05/2018)
 
-* Aimed to use *EM algorithm* to estimate unknown parameters of finite normal mixture like: $f(x|\theta)=\sum^k_{i=1}P_if_i(x)$, where $P_i > 0$, $\sum^k_{i=1}P_i=1$ and $f_i(x)$ is the density of $N(\mu_i,\sigma^2)$; here $(P, \mu, \sigma^2)$ is parameter that needs estimation.
+* Aimed to use *EM algorithm* to estimate unknown parameters of finite normal mixture like: $f(x\|\theta)=\sum^k_{i=1}P_if_i(x)$, where $P_i > 0$, $\sum^k_{i=1}P_i=1$ and $f_i(x)$ is the density of $N(\mu_i,\sigma^2)$; here $(P, \mu, \sigma^2)$ is parameter that needs estimation.
 * By introducing latent variable $z$, applied *EM algorithm* to get iteration of unknown parameters.
 * Based on data that chose from random finite normal mixture, got the estimation of unknown parameter by R. 
 * Estimation mentioned above showed less than 5% relative errors compared with real data; Though the number of iterations was kind of big, about 1500~3000 times, the cost of iteration is relatively low and running time is less than a minute.
@@ -82,6 +79,6 @@ GPA: 89.0/100 (3.72/4.00)
 proficiency in applying technologies including R, SAS, MATLAB; have a good command of C Language and Python
 
 ## Personal Information
-DOB: October 15, 1997 <br>
-Email: chloe.zhao1015@gmail.com <br>
+DOB: October 15, 1997
+Email: chloe.zhao1015@gmail.com
 Tel.: +86 18991305181 Add.: Xinxilan Community, No. 129, Science and Technology Road, Yanta District, Xi'an, Shaanxi, China
