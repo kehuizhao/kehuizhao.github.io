@@ -35,7 +35,7 @@ GPA: 89.0/100 (3.72/4.00)
 * Estimation mentioned above showed less than 5% relative errors compared with real data; Though the number of iterations was kind of big, about 1500~3000 times, the cost of iteration is relatively low and running time is less than a minute.
 #### Preconditioned Conjugated Gradient through MATLAB (11/2016)
 * Considered a method to *precondition* n-by-n symmetric positive definite linear system $Ax=b$ so that the matrix of coefficient assumed well conditioned or had just a few distinct eigenvalues.
-* Transformed the system above into $\mathbf{A}\tilde{x}=\tilde{b}$, where $\mathbf{A}=C^{-1}AC^{-1}$, $\tilde{x}=Cx$ , $\tilde{b}=C^-1b$, $C$ was a symmetric positive definite; tried to choose proper $C$ by an *Incomplete Cholesky Factorization* of $A$.
+* Transformed the system above into $\mathbf{A}\tilde{x}=\tilde{b}$, where $\mathbf{A}=C^{-1}AC^{-1}$, $\tilde{x}=Cx$ , $\tilde{b}=C^{-1}b$, $C$ was a symmetric positive definite; tried to choose proper $C$ by an *Incomplete Cholesky Factorization* of $A$.
 * Applied *Conjugated gradient* to transformed system and get the method called *Preconditioned Conjugated Gradient*.
 * Tested this algorithm by MATLAB: Produce a random positive definite linear system $Ax=b$ through MATLAB; Based on the same number of iterations, used MATLAB to compare the running time and relative error before *preconditioned* with those after *preconditioned*.
 * The result from *Preconditioned Conjugated Gradient* shows 28% ~60% fewer relative errors than that from *Conjugated Gradient*, depending on the order of $A​$ and the number of iterations. 
