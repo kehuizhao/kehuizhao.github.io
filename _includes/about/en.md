@@ -2,21 +2,16 @@
 
 #### Wuhan University (09/2015-06/2019)
 
-*Bachelor of Science in **Statistics**, School of Mathematics and Statistics*
-
-Major curriculum: Probability, Mathematical Statistics, Multivariate Statistical Analysis, Applied Regression Analysis, Stochastic Processes, Functional Analysis, etc.
-
+*Bachelor of Science in **Statistics**, School of Mathematics and Statistics* <br>
+Major curriculum: Probability, Mathematical Statistics, Multivariate Statistical Analysis, Applied Regression Analysis, Stochastic Processes, Functional Analysis, etc.<br>
 GPA: 89.0/100 (3.72/4.00)
 
 ## Honors and Awards
 
-09/2018 (2017-2018 Academic Year) Merit Student Scholarship of Wuhan University (TOP 15%)
-
-02/2018 H Award in American Undergraduate Mathematical Contest in Modeling (MCM)
-
-09/2016 (2015-2016 Academic Year) Merit Student Scholarship of Wuhan University (TOP 15%)
-
-11/2015 Excellent Freshman Scholarship of Wuhan University (TOP 15%)
+1. 09/2018 (2017-2018 Academic Year) Merit Student Scholarship of Wuhan University (TOP 15%)
+2. 02/2018 H Award in American Undergraduate Mathematical Contest in Modeling (MCM)
+3. 09/2016 (2015-2016 Academic Year) Merit Student Scholarship of Wuhan University (TOP 15%)
+4. 11/2015 Excellent Freshman Scholarship of Wuhan University (TOP 15%)
 
 ## Project Experience
 
@@ -79,6 +74,6 @@ GPA: 89.0/100 (3.72/4.00)
 proficiency in applying technologies including R, SAS, MATLAB; have a good command of C Language and Python
 
 ## Personal Information
-DOB: October 15, 1997
-Email: chloe.zhao1015@gmail.com
-Tel.: +86 18991305181 Add.: Xinxilan Community, No. 129, Science and Technology Road, Yanta District, Xi'an, Shaanxi, China
+DOB: October 15, 1997 <br>
+Email: chloe.zhao1015@gmail.com <br>
+Tel.: +86 18991305181 
