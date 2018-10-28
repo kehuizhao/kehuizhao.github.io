@@ -16,24 +16,18 @@ GPA: 89.0/100 (3.72/4.00)
 
 ## Project Experience
 
-#### Proposed a Mapping to Divide Given Points into Group (06/2018)                              
-* Considered *labeled data* in $\mathbb{R^2}$ : some are in category *A*, the rest are in category *B*. Aimed to construct a transformation that took any points in  $\mathbb{R^2}$ to return either category *A* or *B*.
-* Constructed such transformation based on artificial neural network.
-* Use MATLAB to train this network: initialize all weight and biases using randn and set a constant learning rate; use the iteration summarized above and store the value of cost function as each iteration; use the semiology command to visualize the process of iteration.
-* **semiology** Plot shows cost undergoes a flood period towards the start of process; After this plateau, the cost decayed at a very slow linear rate. When extra data point is added, after repeating this process, the other points almost remain in the same groups as before.
+#### Proposed a Mapping to Divide Given Points into Group (06/2018)
+* Constructed artificial neural network and applied deep leaning to cluster any points in $\mathbb{R^2}$ into two categories.
+* Minimized cost by *stochastic gradient*; trained this network by MATLAB.
+* Cost underwent a flood period towards the start of process; After this plateau, the cost decayed at a very slow linear rate. When extra data point was added, mapping still performed well.
 
 #### Parameter Estimation of Finite Normal Mixture Samples (05/2018)
-* Aimed to use *EM algorithm* to estimate unknown parameters of finite normal mixture like: $f(x\|\theta)=\sum^k_{i=1}P_if_i(x)$, where $P_i > 0$, $\sum^k_{i=1}P_i=1$ and $f_i(x)$ is the density of $N(\mu_i,\sigma^2)$; here $(P, \mu, \sigma^2)$ is parameter that needs estimation.
-* By introducing latent variable $z$, applied *EM algorithm* to get iteration of unknown parameters.
-* Based on data that chose from random finite normal mixture, got the estimation of unknown parameter by R. 
-* Estimation mentioned above showed less than 5% relative errors compared with real data; Though the number of iterations was kind of big, about 1500~3000 times, the cost of iteration is relatively low and running time is less than a minute.
+* Used *EM algorithm* to estimate unknown parameters of finite normal mixture through R.
+* Result showed less than 5% relative errors compared with real data; Though the number of iterations was kind of big, but the cost of iteration is relatively low.
 
 #### Preconditioned Conjugated Gradient through MATLAB (11/2016)
 * Considered a method to *precondition* n-by-n symmetric positive definite linear system $Ax=b$ so that the matrix of coefficient assumed well conditioned or had just a few distinct eigenvalues.
-* Transformed the system above into $\mathbf{A}\tilde{x}=\tilde{b}$, where $\mathbf{A}=C^{-1}AC^{-1}$, $\tilde{x}=Cx$ , $\tilde{b}=C^{-1}b$, $C$ was a symmetric positive definite; tried to choose proper $C$ by an *Incomplete Cholesky Factorization* of $A$.
-* Applied *Conjugated gradient* to transformed system and get the method called *Preconditioned Conjugated Gradient*.
-* Tested this algorithm by MATLAB: Produce a random positive definite linear system $Ax=b$ through MATLAB; Based on the same number of iterations, used MATLAB to compare the running time and relative error before *preconditioned* with those after *preconditioned*.
-* The result from *Preconditioned Conjugated Gradient* shows 28% ~60% fewer relative errors than that from *Conjugated Gradient*, depending on the order of $A​$ and the number of iterations. 
+* Based on *Incomplete Cholesky Factorization* and other transformation to *precondition* $A$; Applied *Conjugated gradient* to transformed system and get the method called *Preconditioned Conjugated Gradient*. 
 
 ## Internship Experience
 
@@ -60,8 +54,8 @@ GPA: 89.0/100 (3.72/4.00)
 ## Skills
 
 #### Language skills
-* TOEFL: 102 (L: 29, R: 26, W: 25, S: 22) - May 6, 2018
-* GRE: 320(V: 152, Q: 168, W:3.5) - September 1, 2018
+* TOEFL: 102 - Oct 2018
+* GRE: 320 - Sept 2018
 * Common European Framework of Reference for Languages (French A1)
 
 #### Professional skills
