@@ -54,7 +54,7 @@ GPA: 89.0/100 (3.72/4.00)
 ## Skills
 
 #### Language skills
-* TOEFL: 102 - Oct 2018
+* TOEFL: 104 - Oct 2018
 * GRE: 320 - Sept 2018
 * Common European Framework of Reference for Languages (French A1)
 
