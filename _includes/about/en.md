@@ -3,7 +3,7 @@
 
 #### Wuhan University (09/2015-06/2019)
 
-*Bachelor of Science in **Statistics**, School of Mathematics and Statistics* <br>
+*Bachelor of Science in Statistics, School of Mathematics and Statistics* <br>
 GPA: 89.0/100 (3.72/4.00)
 
 ## Honors and Awards
